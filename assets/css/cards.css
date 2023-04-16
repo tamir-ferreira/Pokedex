@@ -12,13 +12,12 @@
 }
 
 .modal-content {
-  width: 80vw;
-  height: 90vh;
+  min-width: 21rem;
+  max-width: 90vw;
+  max-height: 90vh;
   border-radius: 1rem;
-  /* padding: 1rem; */
-  background-color: red;
   color: white;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .modal-content header {
@@ -44,6 +43,11 @@
   padding: 1rem;
 }
 
+.modal-infos > div > h2 {
+  font-size: 35px;
+  text-transform: capitalize;
+}
+
 .modal-infos > div > span {
   align-self: flex-end;
   font-weight: 700;
@@ -60,19 +64,29 @@
   width: fit-content;
   display: flex;
   align-items: center;
+  justify-content: ce;
   border-radius: 0.5rem;
   margin: 0.25rem 0;
   padding: 0 1rem;
-  font-size: 0.625rem;
-  text-align: center;
+  font-size: 0.75rem;
+  /* text-align: center; */
+  letter-spacing: 3px;
   filter: brightness(1.1);
-  background-color: red;
+  font-weight: 300;
+  /* background-color: red; */
 }
+/* .modal-infos > div > ol > li > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+} */
 
 .modal-infos > img {
+  transform: translateY(-4rem);
   align-self: center;
   margin-top: 1rem;
-  min-width: 60%;
+  min-width: 80%;
   height: auto;
   z-index: 1;
 }
@@ -82,9 +96,10 @@
   gap: 1.25rem;
   background-color: white;
   color: black;
-  transform: translateY(-40px);
+  /* transform: translateY(-6rem); */
+  margin-top: -100px;
   z-index: 0;
-  height: 100vh;
+  /* height: 100vh; */
   border-radius: 1rem;
 }
 
@@ -95,7 +110,8 @@
 .modal-details ul {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 8px;
+  text-transform: capitalize;
   list-style: none;
 }
 
@@ -104,6 +120,11 @@
   justify-content: space-between;
   align-items: center;
 }
+.modal-details ul li span:first-child {
+  font-size: 0.725rem;
+  width: 5.3rem;
+}
+
 .modal-details ul li span,
 p {
   font-size: 0.725rem;
@@ -114,10 +135,19 @@ p {
   width: 180px;
   height: 5px;
   background-color: rgb(218, 218, 218);
+  overflow: hidden;
 }
 
 .modal-details ul li div div {
-  width: 120px;
+  width: 75%;
   height: 5px;
+  /* background-color: red; */
+}
+
+.modal-details ul li div div.green {
+  background-color: green;
+}
+
+.modal-details ul li div div.red {
   background-color: red;
 }

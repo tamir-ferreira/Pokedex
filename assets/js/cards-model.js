@@ -4,7 +4,7 @@ class Card {
   type;
   types = [];
   image;
-  base_stats = {};
+  base_stats = [];
 
   constructor(pokemonDetail) {
     console.log(pokemonDetail);

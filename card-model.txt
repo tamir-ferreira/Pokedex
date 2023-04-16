@@ -13,3 +13,27 @@
       </div>
     </div>
   </div>  
+
+
+
+  <li class="">
+              <span>HP</span>
+              <span>${pokemon.base_stats[0].base_stat}</span>
+              <div>
+                <div></div>
+              </div>
+            </li>
+            <li class="">
+              <span>Attack</span>
+              <span>${pokemon.base_stats[1].base_stat}</span>
+              <div>
+                <div></div>
+              </div>
+            </li>
+            <li class="">
+              <span>HP</span>
+              <span>45</span>
+              <div>
+                <div></div>
+              </div>
+            </li>

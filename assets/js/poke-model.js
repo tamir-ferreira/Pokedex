@@ -6,6 +6,7 @@ class Pokemon {
   image;
 
   constructor(pokemonDetail) {
+    // console.log(pokemonDetail);
     this.number = pokemonDetail.id;
     this.name = pokemonDetail.name;
     this.type = pokemonDetail.types[0].type.name;

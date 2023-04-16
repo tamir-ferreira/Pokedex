@@ -4,14 +4,14 @@ const cardList = document.querySelector(".card-list");
 const body = document.querySelector("body");
 const divObserver = document.querySelector(".observer");
 
-cardList.onclick = (event) => {
-  const pokemon = getPokemonById(event.target.parentNode.closest("li")?.id);
-  pokemon.then((jsonBody) => {
-    body.insertAdjacentHTML("beforeend", renderCard(jsonBody));
-    document.querySelector("#btn-back").onclick = () => {
-      document.querySelector(".modal").remove();
-    };
-  });
+cardList.onclick = async (event) => {
+  const pokemon = await getPokemonById(
+    event.target.parentNode.closest("li")?.id
+  );
+  body.insertAdjacentHTML("beforeend", renderCard(pokemon));
+  document.querySelector("#btn-back").onclick = () => {
+    document.querySelector(".modal").remove();
+  };
 };
 
 const calculatePosition = (pokemonNumber) => {
@@ -33,7 +33,7 @@ const renderPokemons = (pokemon) => {
 
   return `
     <li class='${pokemon.type}' id='${pokemon.number} '>
-        <span>#${position} </span>
+        <span>#${position}</span>
         <span>${pokemon.name}</span>
         <div>
             <ol>
@@ -51,7 +51,7 @@ const renderPokemons = (pokemon) => {
 };
 
 const renderCard = (pokemon) => {
-  console.log(pokemon);
+  // console.log(pokemon);
 
   const position = calculatePosition(pokemon.number);
 
@@ -65,10 +65,11 @@ const renderCard = (pokemon) => {
       <div class="modal-infos">
         <div>
           <h2>${pokemon.name}</h2>
-          <span>${position}</span>
+          <span>#${position}</span>
           <ol>
-            <li class="${pokemon.type}">Grass</li>
-            <li class="${pokemon.type}">Poison</li>
+            ${pokemon.types
+              .map((type) => `<li class='${type}'>${type}</li>`)
+              .join("")}
           </ol>
         </div>
         <img
@@ -78,27 +79,21 @@ const renderCard = (pokemon) => {
         <div class="modal-details">
           <h5>Base Stats</h5>
           <ul>
-            <li class="">
-              <span>HP</span>
-              <span>45</span>
-              <div>
-                <div></div>
-              </div>
-            </li>
-            <li class="">
-              <span>HP</span>
-              <span>45</span>
-              <div>
-                <div></div>
-              </div>
-            </li>
-            <li class="">
-              <span>HP</span>
-              <span>45</span>
-              <div>
-                <div></div>
-              </div>
-            </li>
+            ${pokemon.base_stats
+              .map((state) => {
+                return `
+              <li class="">
+                <span>${state.stat.name}</span>
+                <span>${state.base_stat}</span>
+                <div>
+                  <div style='width: ${state.base_stat}%' class='${
+                  state.base_stat >= 50 ? "green" : "red"
+                } '></div>
+                </div>
+              </li>
+            `;
+              })
+              .join("")}
           </ul>
           <h4>Type defenses</h4>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
