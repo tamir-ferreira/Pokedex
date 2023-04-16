@@ -1,0 +1,123 @@
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  background-color: #00000095;
+  /* display: none; */
+  z-index: 10;
+}
+
+.modal-content {
+  width: 80vw;
+  height: 90vh;
+  border-radius: 1rem;
+  /* padding: 1rem; */
+  background-color: red;
+  color: white;
+  overflow: hidden;
+}
+
+.modal-content header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.modal-content > header > button {
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+.modal-infos {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-infos > div {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.modal-infos > div > span {
+  align-self: flex-end;
+  font-weight: 700;
+}
+
+.modal-infos > div > ol {
+  display: flex;
+  gap: 5px;
+  transform: translateY(-15px);
+}
+
+.modal-infos > div > ol > li {
+  height: 23px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  margin: 0.25rem 0;
+  padding: 0 1rem;
+  font-size: 0.625rem;
+  text-align: center;
+  filter: brightness(1.1);
+  background-color: red;
+}
+
+.modal-infos > img {
+  align-self: center;
+  margin-top: 1rem;
+  min-width: 60%;
+  height: auto;
+  z-index: 1;
+}
+
+.modal-details {
+  display: flex;
+  gap: 1.25rem;
+  background-color: white;
+  color: black;
+  transform: translateY(-40px);
+  z-index: 0;
+  height: 100vh;
+  border-radius: 1rem;
+}
+
+.modal-details h5 {
+  margin-top: 1rem;
+}
+
+.modal-details ul {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  list-style: none;
+}
+
+.modal-details ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-details ul li span,
+p {
+  font-size: 0.725rem;
+}
+
+.modal-details ul li div {
+  border-radius: 0.5rem;
+  width: 180px;
+  height: 5px;
+  background-color: rgb(218, 218, 218);
+}
+
+.modal-details ul li div div {
+  width: 120px;
+  height: 5px;
+  background-color: red;
+}

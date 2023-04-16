@@ -19,8 +19,15 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- STYLES -->
     <link rel="stylesheet" href="./assets/css/global.css" />
+    <link rel="stylesheet" href="./assets/css/cards.css" />
     <link rel="stylesheet" href="./assets/css/pokedex.css" />
+
+    <!-- SCRIPTS -->
+    <script defer src="./assets/js/poke-model.js"></script>
+    <script defer src="./assets/js/cards-model.js"></script>
     <script defer src="./assets/js/poke-api.js"></script>
     <script defer src="./assets/js/script.js"></script>
     <title>Pokedex</title>
@@ -30,92 +37,60 @@
       <h1>Pokedex</h1>
       <section>
         <ul class="card-list">
-          <!-- <li>
-            <span>#001</span>
-            <span>Bulbasaur</span>
-            <div>
-              <ol>
-                <li>grass</li>
-                <li>poison</li>
-              </ol>
-              <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
-                alt="Bulbasaur"
-              />
-            </div>
-          </li>
-          <li>
-            <span>#002</span>
-            <span>Ivysaur</span>
-            <div>
-              <ol>
-                <li>grass</li>
-                <li>poison</li>
-              </ol>
-              <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg"
-                alt="Ivysaur"
-              />
-            </div>
-          </li>
-          <li>
-            <span>#003</span>
-            <span>Venusaur</span>
-            <div>
-              <ol>
-                <li>grass</li>
-                <li>poison</li>
-              </ol>
-              <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/3.svg"
-                alt="Venusaur"
-              />
-            </div>
-          </li>
-          <li>
-            <span>#004</span>
-            <span>Charmander</span>
-            <div>
-              <ol>
-                <li>grass</li>
-                <li>poison</li>
-              </ol>
-              <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/4.svg"
-                alt="Charmander"
-              />
-            </div>
-          </li>
-          <li>
-            <span>#005</span>
-            <span>Charmeleon</span>
-            <div>
-              <ol>
-                <li>grass</li>
-                <li>poison</li>
-              </ol>
-              <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/5.svg"
-                alt="Charmeleon"
-              />
-            </div>
-          </li>
-          <li>
-            <span>#006</span>
-            <span> Charizard</span>
-            <div>
-              <ol>
-                <li>grass</li>
-                <li>poison</li>
-              </ol>
-              <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/6.svg"
-                alt="Charizard"
-              />
-            </div>
-          </li> -->
+          <!-- RENDERIZADO PELO JS -->
         </ul>
+        <div class="observer"></div>
       </section>
     </main>
+    <!-- <div class="modal">
+      <div class="modal-content ${pokemon.type}" id="${pokemon.number} ">
+        <header>
+          <button id="btn-back">Voltar</button>
+          <button>Favoritar</button>
+        </header>
+        <div class="modal-infos">
+          <div>
+            <h2>Bulbasaur</h2>
+            <span>#001</span>
+            <ol>
+              <li class="${type}">Grass</li>
+              <li class="${type}">Poison</li>
+            </ol>
+          </div>
+          <img
+            src="https://i.pinimg.com/originals/f2/95/76/f295769d9bd3c34ffc552e837f5304ae.png"
+            alt="${pokemon.name}"
+          />
+          <div class="modal-details">
+            <h5>Base Stats</h5>
+            <ul>
+              <li class="${base_stats}">
+                <span>HP</span>
+                <span>45</span>
+                <div>
+                  <div></div>
+                </div>
+              </li>
+              <li class="${base_stats}">
+                <span>HP</span>
+                <span>45</span>
+                <div>
+                  <div></div>
+                </div>
+              </li>
+              <li class="${base_stats}">
+                <span>HP</span>
+                <span>45</span>
+                <div>
+                  <div></div>
+                </div>
+              </li>
+            </ul>
+            <h4>Type defenses</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
   </body>
 </html>
