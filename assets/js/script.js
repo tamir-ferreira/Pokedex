@@ -1,5 +1,5 @@
 let offset = 0;
-const limit = 10;
+const limit = 20;
 const cardList = document.querySelector(".card-list");
 const body = document.querySelector("body");
 const divObserver = document.querySelector(".observer");
@@ -51,16 +51,17 @@ const renderPokemons = (pokemon) => {
 };
 
 const renderCard = (pokemon) => {
-  // console.log(pokemon);
-
   const position = calculatePosition(pokemon.number);
+  const totalScore = pokemon.base_stats.reduce(
+    (prev, curr) => prev + curr.base_stat,
+    0
+  );
 
   return `
   <div class="modal">
   <div class="modal-content ${pokemon.type}" id="${pokemon.number} ">
       <header>
-        <button id="btn-back">Voltar</button>
-        <button>Favoritar</button>
+        <button class='${pokemon.type}' id="btn-back">back</button>
       </header>
       <div class="modal-infos">
         <div>
@@ -82,21 +83,29 @@ const renderCard = (pokemon) => {
             ${pokemon.base_stats
               .map((state) => {
                 return `
-              <li class="">
-                <span>${state.stat.name}</span>
-                <span>${state.base_stat}</span>
-                <div>
-                  <div style='width: ${state.base_stat}%' class='${
+                  <li class="">
+                    <span>${state.stat.name}</span>
+                    <span>${state.base_stat}</span>
+                    <div>
+                      <div style='width: ${state.base_stat}%' class='${
                   state.base_stat >= 50 ? "green" : "red"
                 } '></div>
-                </div>
-              </li>
-            `;
+                    </div>
+                  </li>
+                `;
               })
               .join("")}
           </ul>
-          <h4>Type defenses</h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          <h4>Total Score</h4>
+          <div class='total-score'>
+            <span>${totalScore}</span>
+            <div>
+              <div style='width: ${totalScore / 7}%' class='${
+    totalScore >= 350 ? "green" : "red"
+  }'>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -115,7 +124,6 @@ const renderCard = (pokemon) => {
   offset += limit;
 })();
 
-/* ---------------- OBSERVADOR FINAL DA LISTA DE CARDS ------------------ */
 const observer = new IntersectionObserver(async (entries) => {
   if (entries.some((entry) => entry.isIntersecting)) {
     loadPokemons();

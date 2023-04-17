@@ -76,9 +76,11 @@ img {
 }
 .electric {
   background-color: #f7cf2e;
+  color: rgb(107, 107, 107);
 }
 .ground {
   background-color: #dfbf69;
+  color: rgb(107, 107, 107);
 }
 .flying {
   background-color: #a98ff0;

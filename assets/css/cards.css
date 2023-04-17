@@ -7,29 +7,51 @@
   position: fixed;
   top: 0;
   background-color: #00000095;
-  /* display: none; */
   z-index: 10;
 }
 
 .modal-content {
   min-width: 21rem;
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: 95vh;
   border-radius: 1rem;
   color: white;
   overflow: auto;
+  box-shadow: 2px 2px 10px 1px black;
 }
 
 .modal-content header {
   display: flex;
-  justify-content: space-between;
-  padding: 1rem;
+  justify-content: flex-end;
+  padding: 1.5rem 1rem 0 0;
 }
 
 .modal-content > header > button {
   color: white;
   background-color: transparent;
   border: none;
+  padding: 0.2rem 1rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 0 1px 0.5px white;
+  opacity: 0.75;
+  font-size: 12px;
+}
+.modal-content > header > button:hover {
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0 0 5px 1px #ffffff;
+}
+
+#btn-back.electric,
+#btn-back.ground {
+  color: rgb(107, 107, 107);
+  box-shadow: 0 0 1px 0.5px rgb(107, 107, 107);
+}
+
+#btn-back.electric:hover,
+#btn-back.ground:hover {
+  color: rgb(107, 107, 107);
+  box-shadow: 0 0 5px 1px rgb(107, 107, 107);
 }
 
 .modal-infos {
@@ -40,7 +62,7 @@
 .modal-infos > div {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .modal-infos > div > h2 {
@@ -69,26 +91,18 @@
   margin: 0.25rem 0;
   padding: 0 1rem;
   font-size: 0.75rem;
-  /* text-align: center; */
   letter-spacing: 3px;
   filter: brightness(1.1);
   font-weight: 300;
-  /* background-color: red; */
 }
-/* .modal-infos > div > ol > li > span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: red;
-} */
 
 .modal-infos > img {
-  transform: translateY(-4rem);
   align-self: center;
   margin-top: 1rem;
   min-width: 80%;
   height: auto;
   z-index: 1;
+  animation: imgAnimation 3s infinite linear;
 }
 
 .modal-details {
@@ -96,10 +110,8 @@
   gap: 1.25rem;
   background-color: white;
   color: black;
-  /* transform: translateY(-6rem); */
   margin-top: -100px;
   z-index: 0;
-  /* height: 100vh; */
   border-radius: 1rem;
 }
 
@@ -141,13 +153,59 @@ p {
 .modal-details ul li div div {
   width: 75%;
   height: 5px;
-  /* background-color: red; */
 }
 
-.modal-details ul li div div.green {
-  background-color: green;
+.modal-details ul li div div.green,
+.total-score > div > div.green {
+  background-color: rgb(76, 179, 76);
+  animation: barAnimation 1.5s linear;
 }
 
-.modal-details ul li div div.red {
-  background-color: red;
+.modal-details ul li div div.red,
+.total-score > div > div.red {
+  background-color: rgb(255, 80, 80);
+  animation: barAnimation 1.5s linear;
+}
+
+.total-score {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.total-score > div {
+  width: 100%;
+  height: 7px;
+  border-radius: 5px;
+  background-color: rgb(218, 218, 218);
+  overflow: hidden;
+}
+
+.total-score > div > div {
+  height: 7px;
+  border-radius: 5px;
+}
+
+@keyframes imgAnimation {
+  0% {
+    transform: translateY(-4rem) scale(1);
+  }
+  50% {
+    transform: translateY(-4rem) scale(0.95);
+  }
+  100% {
+    transform: translateY(-4rem) scale(1);
+  }
+}
+
+@keyframes barAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
